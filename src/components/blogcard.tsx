@@ -10,20 +10,23 @@ interface PropsType {
 
 const Blogcard = ({ img, title, date, comment }: PropsType) => {
   return (
-    <div className="space-y-4">
-      <Image
-        className="rounded-lg hover:scale-105 transition-transform"
-        src={img}
-        alt="post"
-        width={400} // Adjust as needed
-        height={300} // Adjust as needed
-        layout="responsive"
-      />
-      <div className="text-accent font-medium flex justify-between">
-        <span>{date}</span>
-        <span>{comment} Comments</span>
+    <div className="space-y-4 bg-white shadow-lg rounded-lg p-4 transition-transform duration-300 hover:scale-105">
+      <div className="relative w-full h-64">
+        <Image
+          className="rounded-lg object-cover"
+          src={img}
+          alt="Blog post image"
+          fill
+          priority
+        />
       </div>
-      <h3 className="font-bold text-xl">{title}</h3>
+      
+      <div className="text-gray-600 font-medium flex justify-between text-sm">
+        <span>{date}</span>
+        <span>{comment} {comment === 1 ? 'Comment' : 'Comments'}</span>
+      </div>
+
+      <h3 className="font-bold text-lg text-gray-900">{title}</h3>
     </div>
   );
 };
