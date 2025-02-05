@@ -1,5 +1,4 @@
 import React from 'react'
-import Image from 'next/image';
 import Blogcard from '@/components/blogsection';
 
 const data = [
